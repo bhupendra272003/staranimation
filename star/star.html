@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stars</title>
+    <style>
+        body {
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            font-family: "Anton", sans-serif;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        p {
+            position: absolute;
+            font-size: 50px;
+            font-weight: 900;
+            -webkit-text-stroke: 3px rgba(54, 101, 140);
+            color: transparent;
+        }
+        
+        .night {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: rotateZ(45deg);
+        }
+        
+        .star {
+            position: absolute;
+            left: 90%;
+            top: 100%;
+            height: 5px;
+            background: radial-gradient(-45deg, rgb(0, 112, 249), rgba(0, 0, 255, 0));
+            border-radius: 999px;
+            filter: drop-shadow(0 0 6px #699bff);
+            -webkit-animation: tail 3000ms ease-in-out infinite;
+            animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+        }
+        
+        .star::before {
+            content: "";
+            position: absolute;
+            top: calc(90% - 1px);
+            right: 0;
+            height: 5px;
+            background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5f91ff, rgba(0, 0, 255, 0));
+            transform: translateX(20%) rotateZ(45deg);
+            border-radius: 100%;
+            -webkit-animation: shinning 3000ms ease-in-out infinite;
+            animation: shinning 3000ms ease-in-out infinite;
+        }
+        
+        .star::after {
+            content: "";
+            position: absolute;
+            top: calc(100% - 3px);
+            right: 0;
+            height: 5px;
+            background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5f91ff, rgba(0, 0, 255, 0));
+            transform: translateX(20%) rotateZ(45deg);
+            border-radius: 100%;
+            -webkit-animation: shinning 3000ms ease-in-out infinite;
+            animation: shinning 3000ms ease-in-out infinite;
+            transform: translateX(20%) rotateZ(-45deg);
+        }
+        
+        .star:nth-child(1) {
+            top: calc(70% - 132px);
+            left: calc(70% - 347px);
+            -webkit-animation-delay: 2500ms;
+            animation-delay: 2500ms;
+        }
+        
+        .star:nth-child(1)::before,
+        .star:nth-child(1)::after {
+            -webkit-animation-delay: 2500ms;
+            animation-delay: 2500ms;
+        }
+        
+        .star:nth-child(2) {
+            top: calc(90% - 102px);
+            left: calc(90% - 96px);
+            -webkit-animation-delay: 1700ms;
+            animation-delay: 1700ms;
+        }
+        
+        .star:nth-child(2)::before,
+        .star:nth-child(2)::after {
+            -webkit-animation-delay: 1700ms;
+            animation-delay: 1700ms;
+        }
+        
+        .star:nth-child(3) {
+            top: calc(20% - 168px);
+            left: calc(20% - 12px);
+            -webkit-animation-delay: 8783ms;
+            animation-delay: 8783ms;
+        }
+        
+        .star:nth-child(3)::before,
+        .star:nth-child(3)::after {
+            -webkit-animation-delay: 8783ms;
+            animation-delay: 8783ms;
+        }
+        
+        .star:nth-child(4) {
+            top: calc(20% - 62px);
+            left: calc(20% - 145px);
+            -webkit-animation-delay: 211ms;
+            animation-delay: 211ms;
+        }
+        
+        .star:nth-child(4)::before,
+        .star:nth-child(4)::after {
+            -webkit-animation-delay: 211ms;
+            animation-delay: 211ms;
+        }
+        
+        .star:nth-child(5) {
+            top: calc(100% - 188px);
+            left: calc(100% - 109px);
+            -webkit-animation-delay: 343ms;
+            animation-delay: 343ms;
+        }
+        
+        .star:nth-child(5)::before,
+        .star:nth-child(5)::after {
+            -webkit-animation-delay: 343ms;
+            animation-delay: 343ms;
+        }
+        
+        .star:nth-child(6) {
+            top: calc(100% - -157px);
+            left: calc(20% - 15px);
+            -webkit-animation-delay: 5982ms;
+            animation-delay: 5982ms;
+        }
+        
+        .star:nth-child(6)::before,
+        .star:nth-child(6)::after {
+            -webkit-animation-delay: 5982ms;
+            animation-delay: 5982ms;
+        }
+        
+        .star:nth-child(7) {
+            top: calc(20% - 62px);
+            left: calc(20% - 294px);
+            -webkit-animation-delay: 4694ms;
+            animation-delay: 4694ms;
+        }
+        
+        .star:nth-child(7)::before,
+        .star:nth-child(7)::after {
+            -webkit-animation-delay: 4694ms;
+            animation-delay: 4694ms;
+        }
+        
+        .star:nth-child(8) {
+            top: calc(20% - 40px);
+            left: calc(20% - 13px);
+            -webkit-animation-delay: 5844ms;
+            animation-delay: 5844ms;
+        }
+        
+        .star:nth-child(8)::before,
+        .star:nth-child(8)::after {
+            -webkit-animation-delay: 5844ms;
+            animation-delay: 5844ms;
+        }
+        
+        .star:nth-child(9) {
+            top: calc(20% - 103px);
+            left: calc(20% - 97px);
+            -webkit-animation-delay: 9303ms;
+            animation-delay: 9303ms;
+        }
+        
+        .star:nth-child(9)::before,
+        .star:nth-child(9)::after {
+            -webkit-animation-delay: 9303ms;
+            animation-delay: 9303ms;
+        }
+        
+        .star:nth-child(10) {
+            top: calc(20% - 123px);
+            left: calc(20% - 297px);
+            -webkit-animation-delay: 2281ms;
+            animation-delay: 2281ms;
+        }
+        
+        .star:nth-child(10)::before,
+        .star:nth-child(10)::after {
+            -webkit-animation-delay: 2281ms;
+            animation-delay: 2281ms;
+        }
+        
+        .star:nth-child(11) {
+            top: calc(20% - 172px);
+            left: calc(20% - 3px);
+            -webkit-animation-delay: 5877ms;
+            animation-delay: 5877ms;
+        }
+        
+        .star:nth-child(11)::before,
+        .star:nth-child(11)::after {
+            -webkit-animation-delay: 5877ms;
+            animation-delay: 5877ms;
+        }
+        
+        .star:nth-child(12) {
+            top: calc(20% - 68px);
+            left: calc(20% - 277px);
+            -webkit-animation-delay: 4381ms;
+            animation-delay: 4381ms;
+        }
+        
+        .star:nth-child(12)::before,
+        .star:nth-child(12)::after {
+            -webkit-animation-delay: 4381ms;
+            animation-delay: 4381ms;
+        }
+        
+        .star:nth-child(13) {
+            top: calc(20% - -16px);
+            left: calc(20% - 33px);
+            -webkit-animation-delay: 6968ms;
+            animation-delay: 6968ms;
+        }
+        
+        .star:nth-child(13)::before,
+        .star:nth-child(13)::after {
+            -webkit-animation-delay: 6968ms;
+            animation-delay: 6968ms;
+        }
+        
+        .star:nth-child(14) {
+            top: calc(20% - 131px);
+            left: calc(20% - 29px);
+            -webkit-animation-delay: 6968ms;
+            animation-delay: 6968ms;
+        }
+        
+        .star:nth-child(14)::before,
+        .star:nth-child(14)::after {
+            -webkit-animation-delay: 6968ms;
+            animation-delay: 6968ms;
+        }
+        
+        .star:nth-child(15) {
+            top: calc(20% - 100px);
+            left: calc(20% - 196px);
+            -webkit-animation-delay: 1070ms;
+            animation-delay: 1070ms;
+        }
+        
+        .star:nth-child(15)::before,
+        .star:nth-child(15)::after {
+            -webkit-animation-delay: 1070ms;
+            animation-delay: 1070ms;
+        }
+        
+        .star:nth-child(16) {
+            top: calc(20% - 130px);
+            left: calc(20% - 126px);
+            -webkit-animation-delay: 9384ms;
+            animation-delay: 9384ms;
+        }
+        
+        .star:nth-child(16)::before,
+        .star:nth-child(16)::after {
+            -webkit-animation-delay: 9384ms;
+            animation-delay: 9384ms;
+        }
+        
+        .star:nth-child(17) {
+            top: calc(20% - -21px);
+            left: calc(20% - 225px);
+            -webkit-animation-delay: 5608ms;
+            animation-delay: 5608ms;
+        }
+        
+        .star:nth-child(17)::before,
+        .star:nth-child(17)::after {
+            -webkit-animation-delay: 5608ms;
+            animation-delay: 5608ms;
+        }
+        
+        .star:nth-child(18) {
+            top: calc(20% - -179px);
+            left: calc(20% - 163px);
+            -webkit-animation-delay: 7217ms;
+            animation-delay: 7217ms;
+        }
+        
+        .star:nth-child(18)::before,
+        .star:nth-child(18)::after {
+            -webkit-animation-delay: 7217ms;
+            animation-delay: 7217ms;
+        }
+        
+        .star:nth-child(19) {
+            top: calc(20% - 127px);
+            left: calc(20% - 290px);
+            -webkit-animation-delay: 7010ms;
+            animation-delay: 7010ms;
+        }
+        
+        .star:nth-child(19)::before,
+        .star:nth-child(19)::after {
+            -webkit-animation-delay: 7010ms;
+            animation-delay: 7010ms;
+        }
+        
+        .star:nth-child(20) {
+            top: calc(20% - -163px);
+            left: calc(20% - 161px);
+            -webkit-animation-delay: 170ms;
+            animation-delay: 170ms;
+        }
+        
+        .star:nth-child(20)::before,
+        .star:nth-child(20)::after {
+            -webkit-animation-delay: 170ms;
+            animation-delay: 170ms;
+        }
+        
+        @keyframes tail {
+            0% {
+                width: 0;
+            }
+            30% {
+                width: 100%;
+            }
+            100% {
+                width: 0;
+            }
+        }
+        
+        @-webkit-keyframes tail {
+            0% {
+                width: 0;
+            }
+            30% {
+                width: 100%;
+            }
+            100% {
+                width: 0;
+            }
+        }
+        
+        @-webkit-keyframes shinning {
+            0% {
+                width: 0;
+            }
+            20% {
+                width: 30px;
+            }
+            100% {
+                width: 0;
+            }
+        }
+        
+        @keyframes shinning {
+            0% {
+                width: 0;
+            }
+            20% {
+                width: 30px;
+            }
+            100% {
+                width: 0;
+            }
+        }
+        
+        @keyframes shoot {
+            0% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(300px);
+            }
+        }
+        
+        @-webkit-keyframes shoot {
+            0% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(300px);
+            }
+        }
+        
+        @-webkit-keyframes sky {
+            0% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(405deg);
+            }
+        }
+        
+        @keyframes sky {
+            0% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(405deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="night">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <p>JAI SHREE RAM</p>
+</body>
+
+</html>
